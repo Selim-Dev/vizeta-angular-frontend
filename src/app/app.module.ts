@@ -39,6 +39,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { PublicDoctorsService } from './services/public-doctors.service';
 import { EditDoctorComponent } from './components/edit-doctor/edit-doctor.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+import { ContactComponent } from './components/contact/contact.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { AddDoctorComponent } from './components/add-doctor/add-doctor.component
     DashboardComponent,
     EditDoctorComponent,
     AddDoctorComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

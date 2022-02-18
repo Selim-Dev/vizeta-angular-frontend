@@ -15,6 +15,9 @@
                 <li *ngIf="!auth.loggedIn()" class="nav-item">
                     <a class="nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" aria-current="page" routerLink="doctors">Our Doctors</a>
                 </li>
+                <li *ngIf="!auth.loggedIn()" class="nav-item">
+                    <a class="nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" aria-current="page" routerLink="contact">Contact Us</a>
+                </li>
                 <li *ngIf="auth.loggedIn()" class="nav-item">
                     <a class="nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" aria-current="page" routerLink="admin/dashboard">Dashboard</a>
                 </li>

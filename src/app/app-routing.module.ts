@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 import { EditDoctorComponent } from './components/edit-doctor/edit-doctor.component';
+import { ContactComponent } from './components/contact/contact.component';
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'doctors', component: ParentComponent },
@@ -20,6 +21,10 @@ const routes: Routes = [
     path: 'admin/dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
   },
   {
     path: 'admin/add-doctor',

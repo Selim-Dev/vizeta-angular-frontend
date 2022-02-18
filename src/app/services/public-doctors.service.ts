@@ -12,6 +12,6 @@ export class PublicDoctorsService {
     return this.http.get(`${environment.base_url}/doctors`);
   }
   getSingleDoctor(id: string): Observable<any> {
-    return this.http.get(`${environment.base_url}/doctors`);
+    return this.http.get(`${environment.base_url}/doctors/${id}`);
   }
 }
