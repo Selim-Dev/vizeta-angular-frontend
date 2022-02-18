@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg  navbar-dark bg-primary w-100">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item text-white">
+                    <img width="40" alt="Angular Logo" src="https://play-lh.googleusercontent.com/ttLkUcwcja5-8YAhk1ndWbPEglgdoCjs2tEDEOXsd09uq6WuIL-GjWRn_a7HVJbpN06Q" />
+                    <span class="mx-2">Vizeta</span>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="!auth.loggedIn()" class="nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" aria-current="page" routerLink="">Home</a>
+                </li>
+                <li *ngIf="!auth.loggedIn()" class="nav-item">
+                    <a class="nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" aria-current="page" routerLink="doctors">Our Doctors</a>
+                </li>
+                <li *ngIf="auth.loggedIn()" class="nav-item">
+                    <a class="nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" aria-current="page" routerLink="admin/dashboard">Dashboard</a>
+                </li>
+                <li *ngIf="auth.loggedIn()" class="nav-item">
+                    <a class="nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" aria-current="page" routerLink="admin/add-doctor">Add
+						Doctor</a>
+                    <li *ngIf="auth.loggedIn()" class="nav-item">
+                        <a class="nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" aria-current="page" routerLink="admin/doctors">All Doctors</a>
+                    </li>
+
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a *ngIf="!auth.loggedIn()" class="nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="login" tabindex="-1" aria-disabled="true">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="!auth.loggedIn()" class="nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="sign-up" tabindex="-1" aria-disabled="true">Sign UP</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" *ngIf="auth.loggedIn()" class="nav-link " (click)="logout()" tabindex="-1">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

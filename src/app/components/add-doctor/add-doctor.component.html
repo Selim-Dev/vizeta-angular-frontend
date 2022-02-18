@@ -1,0 +1,134 @@
+<div class="container-fluid mt-2 ">
+    <div class="row justify-content-center">
+        <div class="col-md-6  p-2   my-4">
+            <!-- <div class="container my-2 text-center">
+									<h5 class="text-warning">Value Output In Json ( for development only ! )</h5>
+									{{ addDoctorForm.value | json }}
+							</div> -->
+
+            <div class="card  rounded">
+                <div class="card-header">
+                    <h4 class="header d-flex">Add New Doctor</h4>
+                </div>
+                <div class="card-body">
+                    <form class="needs-validation" [formGroup]="addDoctorForm" (submit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input autocomplete="off" required type="text" class="form-control  {{ name.touched ? (name.invalid ? 'is-invalid' : 'is-valid') : ''}} invalid form-control-warning" id="name" formControlName="name">
+                                <div *ngIf="name.invalid && name.touched" class="text-danger ">
+                                    -Name Field is Required & greater than 2.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control {{ email.touched ? (email.invalid ? 'is-invalid' : 'is-valid') : ''}}" id="email" formControlName="email" aria-describedby="emailHelp">
+                                <div *ngIf="email.invalid && email.touched" class="text-danger ">
+                                    -Please Provide a Valid Email
+                                </div>
+                                <!-- <div *ngIf="email.errors.pattern && email.touched" class="text-danger ">
+														-Please Provide a Valid Email
+												</div> -->
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Phone</label>
+                                <input autocomplete="off" required type="text" class="form-control  {{ phone.touched ? (phone.invalid ? 'is-invalid' : 'is-valid') : ''}} invalid form-control-warning" id="phone" formControlName="phone">
+                                <div *ngIf="phone.invalid && phone.touched" class="text-danger ">
+                                    -phone Field is Required & 11 Numbers.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Address</label>
+                                <input autocomplete="off" required type="text" class="form-control  {{ address.touched ? (address.invalid ? 'is-invalid' : 'is-valid') : ''}} invalid form-control-warning" id="address" formControlName="address">
+                                <div *ngIf="address.invalid && address.touched" class="text-danger ">
+                                    -address Field is Required.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="Specialization" class="form-label">Specialization</label>
+                                <input type="text" class="form-control {{ specialization.touched ? (specialization.invalid ? 'is-invalid' : 'is-valid') : ''}} " id="Specialization" formControlName="specialization" aria-describedby="emailHelp">
+                                <div *ngIf="specialization.invalid && specialization.touched" class="text-danger ">
+                                    -Specialization Field is Required.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="fees" class="form-label">Fees</label>
+                                <input type="number" class="form-control {{ fees.touched ? (fees.invalid ? 'is-invalid' : 'is-valid') : ''}} " id="fees" formControlName="fees" aria-describedby="emailHelp">
+                                <div *ngIf="fees.invalid && fees.touched" class="text-danger ">
+                                    -Fees Field is Required.
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea name="description" formControlName="description" class="form-control {{ description.touched ? (description.invalid ? 'is-invalid' : 'is-valid') : ''}}" id="" cols="30" rows="5"></textarea>
+                                <!-- <div *ngIf="description.invalid && description.touched" class="text-danger ">
+														-description Field is Required.
+												</div> -->
+                            </div>
+                        </div>
+                        <!-- <div class="card">
+										<div class="card-header text-danger d-flex justify-content-between">
+												<h2>Phones</h2>
+												<a class="btn btn-lg btn-success" (click)="addPhone()">Add Phone</a>
+										</div>
+										<div class="card-body">
+												<div formArrayName="phones">
+														<div class="row" *ngFor="let phone of phoneForms.controls;let i=index" [formGroupName]="i">
+																<div class="col-md-2 mb-3">
+																		<label for="prefix" class="form-label">Prefix</label>
+																		<input type="password" class="form-control" id="prefix" formControlName="prefix">
+																</div>
+																<div class="col-md-6 mb-3">
+																		<label for="number" class="form-label">Number</label>
+																		<input type="email" class="form-control" id="number" formControlName="number" aria-describedby="emailHelp">
+																</div>
+																<div class="col-md-4 mt-4">
+																		<button class="  btn btn-sm btn-danger form-control" id="button" (click)="deletePhone(i)">Delete
+										Phone</button>
+																</div>
+														</div>
+												</div>
+										</div>
+								</div> -->
+
+                        <!-- <div class="card my-2">
+										<div class="card-header">
+												<h4>Work Address</h4>
+										</div>
+										<div class="card-body">
+												<div class="container-fluid">
+														<div class="row justify-content-between" formGroupName="workAddress">
+																<div class="col-md-4 mb-3">
+																		<label for="region" class="form-label">Region</label>
+																		<input type="text" class="form-control {{ workAddress.region.touched ? (workAddress.region.invalid ? 'is-invalid' : 'is-valid') : ''}}" id="region" formControlName="region">
+																		<div *ngIf="workAddress.region.invalid && workAddress.region.touched" class="text-danger ">
+																				-Region Field is required
+																		</div>
+																</div>
+																<div class="col-md-4 mb-3">
+																		<label for="area" class="form-label">Area</label>
+																		<input type="email" class="form-control {{ workAddress.area.touched ? (workAddress.area.invalid ? 'is-invalid' : 'is-valid') : ''}}" id="area" formControlName="area" aria-describedby="emailHelp">
+																		<div *ngIf="workAddress.area.invalid && workAddress.area.touched" class="text-danger ">
+																				-Area Field is required
+																		</div>
+																</div>
+																<div class="col-md-4 mb-3">
+																		<label for="street" class="form-label">Street</label>
+																		<input type="text" class="form-control {{ workAddress.street.touched ? (workAddress.street.invalid ? 'is-invalid' : 'is-valid') : ''}}" id="street" formControlName="street" aria-describedby="emailHelp">
+																		<div *ngIf="workAddress.street.invalid && workAddress.street.touched" class="text-danger ">
+																				-Street Field is required
+																		</div>
+																</div>
+
+														</div>
+												</div>
+										</div>
+								</div> -->
+
+                        <button [disabled]="addDoctorForm.invalid" type="submit my-2" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

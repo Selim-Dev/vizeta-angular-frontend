@@ -1,0 +1,21 @@
+.checked {
+  color: orange;
+}
+
+.doctor-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+}
+
+.icon {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  color: blue;
+  font-size: 1.2rem;
+}
+/*# sourceMappingURL=child.component.css.map */
